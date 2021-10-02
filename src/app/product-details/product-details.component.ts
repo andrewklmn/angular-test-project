@@ -12,6 +12,11 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
+  clicker($event : any) : void {
+    const target = $event?.target;
+    console.log(target);
+  }
+
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.product = products[+params.get('productId')];

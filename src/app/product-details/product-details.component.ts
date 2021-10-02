@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { products } from '../products';
 
@@ -9,12 +9,13 @@ import { products } from '../products';
 })
 export class ProductDetailsComponent implements OnInit {
   product;
+  @Input() count: number = 0;
 
   constructor(private route: ActivatedRoute) {}
 
-  clicker($event : any) : void {
+  clicker($event: any): void {
     const target = $event?.target;
-    console.log(target);
+    console.log(this.count++);
   }
 
   ngOnInit() {
